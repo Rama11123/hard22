@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+
+        .box1 {
+            width: 500px;
+            height: 600px;
+            background: aqua;
+            padding: 15px;
+            text-align: center;
+            margin: 50px auto;
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            box-shadow: 5px 5px 3px 3px;
+        }
+
+        h1 {
+            font-size: 35px;
+            text-align: center;
+            padding: 2px 0 12px;
+        }
+
+        .container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: black;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    transition: all ease-in 0.3s;
+}
+
+.sidebar.hide{
+    width: 87px;
+    transition: all ease-out 0.4s;
+}
+
+
+.main-content {
+    background-color: #EEEEEE;
+    flex-grow: 1;
+}
+
+.sidebar .description-header{
+    font-style: normal;
+    font-weight: 700px;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sidebar.hide .description-header {
+    display: none;
+}
+
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar .header .list-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 14px;
+    padding: 12px 10px;
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.sidebar .header .ilustration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px 0 22px 0;
+    box-sizing: border-box;
+}
+
+.sidebar.hide .ilustration {
+    display: none;
+}
+
+
+.sidebar .logo{
+    margin-left: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+.sidebar.hide .logo {
+    display: none;
+}
+
+.sidebar .main .list-item .description{
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sidebar.hide .main .list-item .description{
+    display: none;
+}
+
+.sidebar .main .list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all ease-in .2s
+}
+
+.icon {
+    margin-right: 12px;
+    margin-bottom: -5px;
+    width: 25px;
+    height: 25px;
+}
+
+.sidebar .icn {
+    margin-left: -15px;
+    margin-right: -2px;
+    margin-bottom: -5px;
+    width: 26px;
+    height: 26px;
+}
+
+
+.sidebar .main .list-item:hover{
+    background: palevioletred;
+    transition: all ease-in .2s
+}
+
+.main-content {
+    background: linear-gradient(azure, aqua, blue);
+}
+/*toggle menu*/
+
+#menu-button {
+    width: 32px;
+    position: absolute;
+    overflow: hidden;
+}
+
+#menu-label{
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+
+#menu-checkbox{
+    display: none;
+}
+
+#burger, #menu-label:after, #menu-label:before{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+}
+
+#menu-label:after , #menu-label:before {
+    content: "";
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#menu-label:before {
+    top: 0;
+}
+
+#menu-label:after {
+    top: 8px;
+}
+
+#burger {
+    top: 16px;
+}
+
+#burger:before {
+    content: "MENU";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#menu-checkbox:checked + #menu-label:before {
+    left: -39px;
+}
+
+#menu-checkbox:checked + #menu-label:after {
+    left: 39px;
+}
+
+#menu-checkbox:checked + #menu-label #burger:before {
+    animation: moveUpThenDown 0.8s ease 0.2s forwards, shakeUp 0.8s ease 0.2s forwards, shakedown;
+}
+
+@keyframes moveUpThenDown {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -27px;
+    }
+    100% {
+        top: -14px;
+    }
+}
+
+@keyframes shakeUp {
+    0% {
+        transform: rotateZ('0');
+    }
+    25% {
+        transform: rotateZ('-10deg');
+    }
+    50% {
+        transform: rotateZ('0');
+    }
+    75% {
+        transform: rotateZ('10deg');
+    }
+    100% {
+        transform: rotateZ('0');
+    }
+}
+
+@keyframes shakedown {
+    0% {
+        transform: rotateZ('0');
+    }
+    80% {
+        transform: rotateZ('3deg');
+    }
+    90% {
+        transform: rotateZ('-3deg');
+    }
+    100% {
+        transform: rotateZ('0');
+    }
+}
+    </style>
+    <div class="container">
+        <div class="sidebar">
+             <div class="header">
+                <div class="list-item">
+                    <a href="index.html">
+                        <img src="img/esemka.jfif" alt="" class="icn">
+                        <span class="description-header">SMK NURJAMILAH</span>
+                    </a>
+                    </div>
+                    <div class="ilustrasion">
+                        <img src="img/gg.jpeg" alt="" class="logo">
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="list-item">
+                        <a href="index.html">
+                            <img src="img/download.png" alt="" class="icon">
+                            <span class="description">HOME</span>
+                        </a>
+                    </div>
+                    <div class="list-item">
+                        <a href="profile.html">
+                            <img src="img/Frame 1.svg" alt="" class="icon">
+                            <span class="description">PROFILE</span>
+                        </a>
+                    </div>
+                    <div class="list-item">
+                        <a href="gallery.html">
+                            <img src="img/gallry.png" alt="" class="icon">
+                            <span class="description">GALLERY</span>
+                        </a>
+                    </div>
+                </div>
+        </div>
+        <div class="main-content">
+            <div id="menu-button">
+                <input type="checkbox" id="menu-checkbox">
+                <label for="menu-checkbox" id="menu-label">
+                    <div id="burger"></div>
+                </label>
+            </div>
+    <div class="box1 animate_animate animate__fadeInDown">
+            <h1>SMK NURJAMILAH BEKASI</h1>
+
+            <p><b>SMK NURJAMILAH adalah salah satu pendidikan dengan jenjang SMK di Kranji,Kota Bekasi,Jawa Barat.Dalam menjalankan kegiatannya,SMK NURJAMILAH berada di bawah naungan Kementerian Pendidikan dan Kebudayaan <br>
+            <br>
+            ALAMAT SEKOLAH <br>
+            <br>
+            ALAMAT SMK NURJAMILAH di Jl.BINTARA RAYA NO. 27 Kranji,Kec.Bekasi Barat,Kota Bekasi, Jawa Barat, dengan kode pos 171SEKOLAH <br>
+            <br>
+            JURUSAN <br>
+            <br>
+            SMK Nurjamilah memiliki 2 jurusan yaitu: <br>
+            <br>
+            • RPL(Rekayasa perangkat lunak) <br>
+            <br>
+            • AP(Administrasi perkantoran) <br>
+            <br>
+            FASILITAS YANG DISEDIAKAN SMK NURJAMILAH <br>
+            <br>
+            SMKS NURJAMILAH menyediakan listrik untuk membantu kegiatan belajar mengajar. Sumber listrik yang digunakan oleh SMKS NURJAMILAH berasal dari PLN. SMKS NURJAMILAH menyediakan akses internet yang dapat digunakan untuk mendukung kegiatan belajar mengajar menjadi lebih mudah. Provider yang digunakan SMKS NURJAMILAH untuk sambungan internetnya adalah Telkom Speedy. <br></b></p> 
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

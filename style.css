@@ -1,0 +1,329 @@
+body{
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background-color: black;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    transition: all ease-in 0.3s;
+}
+
+.sidebar.hide{
+    width: 87px;
+    transition: all ease-out 0.4s;
+}
+
+
+.main-content {
+    background-color: #EEEEEE;
+    flex-grow: 1;
+}
+
+.sidebar .description-header{
+    font-style: normal;
+    font-weight: 700px;
+    font-size: 18px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sidebar.hide .description-header {
+    display: none;
+}
+
+
+.sidebar a {
+    text-decoration: none;
+}
+
+.sidebar .header .list-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 14px;
+    padding: 12px 10px;
+    border-radius: 8px;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.sidebar .header .ilustration {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 10px 0 22px 0;
+    box-sizing: border-box;
+}
+
+.sidebar.hide .ilustration {
+    display: none;
+}
+
+
+.sidebar .logo{
+    margin-left: 50px;
+    width: 100px;
+    height: 100px;
+}
+
+.sidebar.hide .logo {
+    display: none;
+}
+
+.sidebar .main .list-item .description{
+    font-style: normal;
+    font-weight: 400px;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sidebar.hide .main .list-item .description{
+    display: none;
+}
+
+.sidebar .main .list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 10px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all ease-in .2s
+}
+
+.icon {
+    margin-right: 12px;
+    margin-bottom: -5px;
+    width: 25px;
+    height: 25px;
+}
+
+.sidebar .icn {
+    margin-left: -15px;
+    margin-right: -2px;
+    margin-bottom: -5px;
+    width: 26px;
+    height: 26px;
+}
+
+
+.sidebar .main .list-item:hover{
+    background: palevioletred;
+    transition: all ease-in .2s
+}
+
+.konten {
+    text-align: center;
+}
+
+.line {
+    width: 500px;
+    margin: 0 auto;
+}
+
+.main-content {
+    background: linear-gradient(
+        to bottom right,
+        azure,
+        rgb(218, 238, 238),
+        pink,
+        palevioletred
+    );
+}
+
+.img2 {
+    width: 250px;
+    height: 250px;
+    margin-left: 600px;
+    margin-bottom: -150px;
+}
+
+.p2{
+    font-size: 25px;
+    margin-right: 360px;
+    margin-top: -100px;
+}
+
+.ul2 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.li2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-right: 360px;
+    margin-top: 20px;
+}
+
+/*animate scroll*/
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+/*animated*/
+section .animate {
+    filter: blur(5px);
+    transition: 1s;
+}
+
+section.show-animate .animate {
+    filter: blur(0);
+}
+
+.sec-1 .animate {
+    transform: translateX(-100%);
+}
+
+.sec-1.show-animate .animate {
+    transform: translateX(0);
+}
+
+.sec-2 .animate {
+    transform: scale(.7);
+}
+
+.sec-2.show-animate .animate {
+    transform: scale(1);
+}
+
+/* Toogle menu */
+
+#menu-button {
+    width: 32px;
+    position: absolute;
+    overflow: hidden;
+}
+
+#menu-label{
+    position: relative;
+    display: block;
+    height: 20px;
+    cursor: pointer;
+}
+
+#menu-checkbox{
+    display: none;
+}
+
+#burger, #menu-label:after, #menu-label:before{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: black;
+}
+
+#menu-label:after , #menu-label:before {
+    content: "";
+    transition: 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#menu-label:before {
+    top: 0;
+}
+
+#menu-label:after {
+    top: 8px;
+}
+
+#burger {
+    top: 16px;
+}
+
+#burger:before {
+    content: "MENU";
+    position: absolute;
+    top: 5px;
+    right: 0;
+    left: 0;
+    color: black;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#menu-checkbox:checked + #menu-label:before {
+    left: -39px;
+}
+
+#menu-checkbox:checked + #menu-label:after {
+    left: 39px;
+}
+
+#menu-checkbox:checked + #menu-label #burger:before {
+    animation: moveUpThenDown 0.8s ease 0.2s forwards, shakeUp 0.8s ease 0.2s forwards, shakedown;
+}
+
+@keyframes moveUpThenDown {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: -27px;
+    }
+    100% {
+        top: -14px;
+    }
+}
+
+@keyframes shakeUp {
+    0% {
+        transform: rotateZ('0');
+    }
+    25% {
+        transform: rotateZ('-10deg');
+    }
+    50% {
+        transform: rotateZ('0');
+    }
+    75% {
+        transform: rotateZ('10deg');
+    }
+    100% {
+        transform: rotateZ('0');
+    }
+}
+
+@keyframes shakedown {
+    0% {
+        transform: rotateZ('0');
+    }
+    80% {
+        transform: rotateZ('3deg');
+    }
+    90% {
+        transform: rotateZ('-3deg');
+    }
+    100% {
+        transform: rotateZ('0');
+    }
+}
